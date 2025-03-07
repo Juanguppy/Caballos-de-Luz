@@ -74,6 +74,8 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
+		private Vector3 initialPosition; // posición inicial del player
+
 		private bool IsCurrentDeviceMouse
 		{
 			get
@@ -108,6 +110,9 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+
+			initialPosition = transform.position; // guardo la posición inicial del player
+			Debug.Log("PlayerManager: Start: initialPosition: " + initialPosition);
 		}
 
 		private void Update()
@@ -150,7 +155,18 @@ namespace StarterAssets
 				transform.Rotate(Vector3.up * _rotationVelocity);
 			}
 		}
-
+		
+		private void OnCollisionEnter(Collision collision)
+		{
+			Debug.Log("PlayerManager: OnCollisionEnter");
+			// cuando se choca con un enemigo, el player vuelve a la posición inicial
+			if (collision.gameObject.CompareTag("Enemy"))
+			{
+				Debug.Log("PlayerManager: OnCollisionEnter: Enemy --- collision!!");
+				transform.position = initialPosition;
+			}
+		}
+		
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
