@@ -12,6 +12,7 @@ TagManager:
   - Wall
   - Enemy
   - Ground
+  - LevelLoader
   layers:
   - Default
   - TransparentFX

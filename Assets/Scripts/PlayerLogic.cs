@@ -18,6 +18,7 @@ public class PlayerLogic : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         initialPosition = transform.position;
         Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     void Update()
@@ -76,6 +77,13 @@ public class PlayerLogic : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("LevelLoader"))
+        {
+            other.gameObject.GetComponent<ChangeScene>().ChangeToScene();
         }
     }
 }

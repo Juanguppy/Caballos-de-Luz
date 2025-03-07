@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Prototipado1/Menu.unity
     guid: cc18166f86371ed45b0509520a274501
   - enabled: 1
+    path: Assets/Scenes/Prototipado1/Inicio.unity
+    guid: 2a681f39f9c2cbd4ca68be99f01600c7
+  - enabled: 1
     path: Assets/Scenes/Prototipado1/Prototipo1.unity
     guid: 55846f8974f4901debefc4640323ffef
   m_configObjects:
