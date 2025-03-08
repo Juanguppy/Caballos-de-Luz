@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerLogic : MonoBehaviour
 {
-    public float moveSpeed = 50f;
-    public float sprintSpeed = 100f;
+    public float moveSpeed = 5f;
+    public float sprintSpeed = 10f;
     public float jumpForce = 5f;
     public float mouseSensitivity = 100f;
     public Transform cameraTransform;
@@ -12,13 +12,13 @@ public class PlayerLogic : MonoBehaviour
     private Rigidbody rb;
     private float xRotation = 0f;
     private bool isGrounded;
-
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true; // Evitar que el personaje se caiga al chocar con algo
         initialPosition = transform.position;
         Cursor.lockState = CursorLockMode.Locked;
-        
     }
 
     void Update()
@@ -36,7 +36,9 @@ public class PlayerLogic : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
-        rb.MovePosition(transform.position + move * moveSpeedCurrent * Time.deltaTime);
+        Vector3 velocity = new Vector3(move.x * moveSpeedCurrent, rb.linearVelocity.y, move.z * moveSpeedCurrent);
+        
+        rb.linearVelocity = velocity;
     }
 
     void RotateCamera()
@@ -56,6 +58,7 @@ public class PlayerLogic : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
         }
     }
 
@@ -72,13 +75,6 @@ public class PlayerLogic : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-        }
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("LevelLoader"))
