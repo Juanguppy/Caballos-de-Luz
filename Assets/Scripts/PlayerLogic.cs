@@ -81,5 +81,15 @@ public class PlayerLogic : MonoBehaviour
         {
             other.gameObject.GetComponent<ChangeScene>().ChangeToScene();
         }
+
+        //  Marca el nivel como completado al tocar un objeto con el tag "LevelCompletion"
+        if (other.gameObject.CompareTag("LevelCompletion"))
+        {
+            LevelCompletion levelCompletion = other.gameObject.GetComponent<LevelCompletion>();
+            if (levelCompletion != null)
+            {
+                levelCompletion.MarkLevelAsCompleted();
+            }
+        }
     }
 }
