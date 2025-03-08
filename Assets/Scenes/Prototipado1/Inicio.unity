@@ -349,6 +349,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredLevelIndex: 1
+--- !u!114 &851738760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851738754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5230c098eba195248b7e4304801d547d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 7.5
 --- !u!1 &949350617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,6 +1038,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7773858294574178483, guid: b6863142b93bd4f41b8f16c6fb3fc42b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 851738759}
+    - targetCorrespondingSourceObject: {fileID: 7773858294574178483, guid: b6863142b93bd4f41b8f16c6fb3fc42b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 851738760}
     - targetCorrespondingSourceObject: {fileID: 7773858294574182187, guid: b6863142b93bd4f41b8f16c6fb3fc42b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1717252080}
