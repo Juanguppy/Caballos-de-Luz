@@ -102,9 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e97a138e8479947b0e12d0a0e8d13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 120
-  sprintSpeed: 240
-  jumpForce: 5
+  moveSpeed: 40
+  sprintSpeed: 70
+  jumpForce: 10
   mouseSensitivity: 100
   cameraTransform: {fileID: 8714641698579541193}
   initialPosition: {x: 0, y: 0, z: 0}

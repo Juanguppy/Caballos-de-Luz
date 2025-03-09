@@ -55,7 +55,7 @@ public class PlayerLogic : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
@@ -72,6 +72,14 @@ public class PlayerLogic : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             transform.position = initialPosition;
+        }
+    }
+
+    private void OnClissionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
         }
     }
 

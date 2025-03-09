@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CherryTree_01_Mesh
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d6b4c7ca429475f4399dfbc72b37e1ef, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 7250925875338068227, guid: d6b4c7ca429475f4399dfbc72b37e1ef, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
