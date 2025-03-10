@@ -8,10 +8,12 @@ public class PlayerLogic : MonoBehaviour
     public float mouseSensitivity = 100f;
     public Transform cameraTransform;
     public Vector3 initialPosition;
+    public AudioClip wallCollisionSound;
 
     private Rigidbody rb;
     private float xRotation = 0f;
     private bool isGrounded;
+    private AudioSource audioSource;
     
     void Start()
     {
@@ -19,6 +21,11 @@ public class PlayerLogic : MonoBehaviour
         rb.freezeRotation = true; // Evitar que el personaje se caiga al chocar con algo
         initialPosition = transform.position;
         Cursor.lockState = CursorLockMode.Locked;
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            Debug.LogWarning("AudioSource component not found.");
+        }
     }
 
     void Update()
@@ -72,6 +79,16 @@ public class PlayerLogic : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             transform.position = initialPosition;
+        }
+        // hacemos sonido pa los ciegos 
+        if (collision.gameObject.CompareTag("Wall"))
+        {   
+            Debug.Log("Wall collision");
+            if (audioSource != null && wallCollisionSound != null)
+            {
+                Debug.Log("Playing sound");
+                audioSource.PlayOneShot(wallCollisionSound);
+            }
         }
     }
 
