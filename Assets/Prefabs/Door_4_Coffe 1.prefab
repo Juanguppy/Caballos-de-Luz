@@ -227,6 +227,8 @@ MonoBehaviour:
   asource: {fileID: 0}
   openDoor: {fileID: 8300000, guid: 44b63b0db16ce624b97e45ebde0a0971, type: 3}
   closeDoor: {fileID: 8300000, guid: bc37ad25465405a428a26ff0facd9a7b, type: 3}
+  doorGoingToOpen: {fileID: 8300000, guid: 2ba5f4941c1aa924ab2c246f0712e3d6, type: 3}
+  doorGoingToClose: {fileID: 8300000, guid: 3fab5980d1a82d84db49a402c86433c3, type: 3}
   openInterval: 10
   openDuration: 5
 --- !u!65 &7648848231441656264

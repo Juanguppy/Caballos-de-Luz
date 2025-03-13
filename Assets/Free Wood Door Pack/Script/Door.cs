@@ -12,7 +12,7 @@ namespace DoorScript
         float DoorOpenAngle = -90.0f;
         float DoorCloseAngle = 0.0f;
         public AudioSource asource;
-        public AudioClip openDoor, closeDoor;
+        public AudioClip openDoor, closeDoor, doorGoingToOpen, doorGoingToClose;
         public float openInterval = 10f;
         public float openDuration = 5f;
 
@@ -34,9 +34,12 @@ namespace DoorScript
         {
             timer -= Time.deltaTime;
 
-            if (timer <= 1 && !open)
+            if (timer <= 1)
             {
                 doorLight.StartBlinkingAmber();
+                asource.clip = doorGoingToClose; // hay que mirar por qué no funciona :(
+                Debug.Log("Playing sound");
+                asource.Play();
             }
 
             if (timer <= 0)
