@@ -1044,6 +1044,52 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!28 &473149206
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: VFXG_Falling_Sand_Rocks_A_PositionMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 9
+  m_Height: 1
+  m_CompleteImageSize: 144
+  m_MipsStripped: 0
+  m_TextureFormat: 20
+  m_MipCount: 1
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 144
+  _typelessdata: a2194642ec5cbd424d7e89c30000803f57e22f4268f2b74216dc82c30000803fc89050428667bc42e0588ec30000803f306a4a42a6c0bb4230ba92c30000803f281d61427e5db642938297c30000803fda5c7a42504dbb421a8a9fc30000803f94f897421463b242a1a0a8c30000803f08019e42354cb342d454b2c30000803f31eda742354cb3425653b9c30000803f
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &481636813 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 575259427208365952, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
@@ -1181,6 +1227,10 @@ PrefabInstance:
     - target: {fileID: 4035430784257826899, guid: b925aa770a500c240b2a7ae98731e942, type: 3}
       propertyPath: m_Name
       value: hammer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4035430784257826899, guid: b925aa770a500c240b2a7ae98731e942, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4035430784257826899, guid: b925aa770a500c240b2a7ae98731e942, type: 3}
       propertyPath: m_IsActive
@@ -2201,11 +2251,11 @@ PrefabInstance:
     - target: {fileID: 873606921009702139, guid: c0c5c1f152b9fc44a8dc91451665f760, type: 3}
       propertyPath: m_PropertySheet.m_NamedObject.m_Array.Array.data[0].m_Value
       value: 
-      objectReference: {fileID: 1494525025}
+      objectReference: {fileID: 473149206}
     - target: {fileID: 2993892118262295031, guid: c0c5c1f152b9fc44a8dc91451665f760, type: 3}
       propertyPath: m_PropertySheet.m_NamedObject.m_Array.Array.data[0].m_Value
       value: 
-      objectReference: {fileID: 1118012035}
+      objectReference: {fileID: 1289329100}
     - target: {fileID: 3641251155163695355, guid: c0c5c1f152b9fc44a8dc91451665f760, type: 3}
       propertyPath: m_Name
       value: VFX_Oasis
@@ -2510,52 +2560,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 78.287, z: 0}
---- !u!28 &1118012035
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: VFXG_Falling_Sand_Rocks_B_PositionMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 6
-  m_Height: 1
-  m_CompleteImageSize: 96
-  m_MipsStripped: 0
-  m_TextureFormat: 20
-  m_MipCount: 1
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 1
-  m_MipmapLimitGroupName: 
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_LightmapFormat: 0
-  m_ColorSpace: 1
-  m_PlatformBlob: 
-  image data: 96
-  _typelessdata: 08b940c1788dae42189da3c30000803f73d20dc263878d42fc3cb6c30000803f503131c1ba03a542667398c30000803f94531bc1da43ae42d4fc9dc30000803f644871c19e59a54298dd93c30000803f48efccc11b4bab42f2b7adc30000803f
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1001 &1179645569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2899,6 +2903,52 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!28 &1289329100
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: VFXG_Falling_Sand_Rocks_B_PositionMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 6
+  m_Height: 1
+  m_CompleteImageSize: 96
+  m_MipsStripped: 0
+  m_TextureFormat: 20
+  m_MipCount: 1
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 96
+  _typelessdata: 08b940c1788dae42189da3c30000803f73d20dc263878d42fc3cb6c30000803f503131c1ba03a542667398c30000803f94531bc1da43ae42d4fc9dc30000803f644871c19e59a54298dd93c30000803f48efccc11b4bab42f2b7adc30000803f
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &1435324634
 GameObject:
   m_ObjectHideFlags: 0
@@ -3192,52 +3242,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!28 &1494525025
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: VFXG_Falling_Sand_Rocks_A_PositionMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 9
-  m_Height: 1
-  m_CompleteImageSize: 144
-  m_MipsStripped: 0
-  m_TextureFormat: 20
-  m_MipCount: 1
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 1
-  m_MipmapLimitGroupName: 
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_LightmapFormat: 0
-  m_ColorSpace: 1
-  m_PlatformBlob: 
-  image data: 144
-  _typelessdata: a2194642ec5cbd424d7e89c30000803f57e22f4268f2b74216dc82c30000803fc89050428667bc42e0588ec30000803f306a4a42a6c0bb4230ba92c30000803f281d61427e5db642938297c30000803fda5c7a42504dbb421a8a9fc30000803f94f897421463b242a1a0a8c30000803f08019e42354cb342d454b2c30000803f31eda742354cb3425653b9c30000803f
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &1542002233
 GameObject:
   m_ObjectHideFlags: 0
@@ -4190,6 +4194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: hammer
       objectReference: {fileID: 0}
+    - target: {fileID: 4035430784257826899, guid: b925aa770a500c240b2a7ae98731e942, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 4253400933779607026, guid: b925aa770a500c240b2a7ae98731e942, type: 3}
       propertyPath: m_LocalScale.x
       value: 66.10685
@@ -4259,6 +4267,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlimePolyart
       objectReference: {fileID: 0}
+    - target: {fileID: 575259427208365952, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1540612767955646778, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2183565899640583204, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
       propertyPath: m_LocalPosition.x
       value: -72.93444
@@ -4298,6 +4314,50 @@ PrefabInstance:
     - target: {fileID: 2183565899640583204, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452866307059414776, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839326806464372740, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561552519712118196, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859075847197345212, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201779981654789933, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201789237472269179, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6881741579239894939, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605560228609875993, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8565010414019532131, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741931270853558967, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808958481177872599, guid: 3fce1a6f019d89b409552003359d1413, type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
