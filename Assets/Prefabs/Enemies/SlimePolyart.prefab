@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2183565899640583204}
   - component: {fileID: 414617307875269633}
   - component: {fileID: 6571268445758373891}
-  - component: {fileID: 6072066076655309617}
   - component: {fileID: 4213025565576120955}
   m_Layer: 0
   m_Name: SlimePolyart
@@ -87,22 +86,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6072066076655309617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 575259427208365952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3d27d83a71d98548a8549f07078f186, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 7.5
-  detectionRange: 200
-  soundInterval: 5
-  alertSound: {fileID: 8300000, guid: 8ebcb6234d419344daa712ba65bb3798, type: 3}
 --- !u!65 &4213025565576120955
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -114,12 +114,6 @@ public class WheelchairController : MonoBehaviour
             Debug.Log("Hammer picked up");
 			Destroy(hit.gameObject);
         }
-
-		if(hit.gameObject.CompareTag("BreakableWall")){
-			if(hasHammer){
-				Destroy(hit.gameObject);
-			}
-		}
     }
 
     private void OnTriggerEnter(Collider other)
