@@ -10,12 +10,12 @@ public class PlayerLogic : MonoBehaviour
     public Vector3 initialPosition;
     public AudioClip wallCollisionSound;
 
-    private Rigidbody rb;
-    private float xRotation = 0f;
-    private bool isGrounded;
-    private AudioSource audioSource;
+    protected Rigidbody rb;
+    protected float xRotation = 0f;
+    protected bool isGrounded;
+    protected AudioSource audioSource;
     
-    void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true; // Evitar que el personaje se caiga al chocar con algo
@@ -28,14 +28,14 @@ public class PlayerLogic : MonoBehaviour
         }
     }
 
-    void Update()
+    protected virtual void Update()
     {
         MovePlayer();
         RotateCamera();
         Jump();
     }
 
-    void MovePlayer()
+    protected virtual void MovePlayer()
     {
         float moveSpeedCurrent = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : moveSpeed;
 
@@ -48,7 +48,7 @@ public class PlayerLogic : MonoBehaviour
         rb.linearVelocity = velocity;
     }
 
-    void RotateCamera()
+    protected virtual void RotateCamera()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -60,7 +60,7 @@ public class PlayerLogic : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX);
     }
 
-    void Jump()
+    protected virtual void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -69,7 +69,7 @@ public class PlayerLogic : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    protected virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
@@ -92,7 +92,7 @@ public class PlayerLogic : MonoBehaviour
         }
     }
 
-    private void OnClissionExit(Collision collision)
+    protected virtual void OnColissionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
@@ -100,7 +100,7 @@ public class PlayerLogic : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("LevelLoader"))
         {

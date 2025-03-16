@@ -16,6 +16,10 @@ TagManager:
   - LevelCompletion
   - Hammer
   - BreakableWall
+  - SquizoWall
+  - FakeWall
+  - FakeHorse
+  - FakeEnemy
   layers:
   - Default
   - TransparentFX
