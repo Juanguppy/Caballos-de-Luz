@@ -20,6 +20,7 @@ TagManager:
   - FakeWall
   - FakeHorse
   - FakeEnemy
+  - HelpWall
   layers:
   - Default
   - TransparentFX
