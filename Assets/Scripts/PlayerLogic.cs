@@ -107,6 +107,14 @@ public class PlayerLogic : MonoBehaviour
             other.gameObject.GetComponent<ChangeScene>().ChangeToScene();
         }
 
+        if (other.gameObject.CompareTag("HelpWall"))
+        {   
+            Debug.Log("Help wall detected");
+            if (audioSource != null && wallCollisionSound != null)
+            {
+                audioSource.PlayOneShot(wallCollisionSound);
+            }
+        }
         //  Marca el nivel como completado al tocar un objeto con el tag "LevelCompletion"
         if (other.gameObject.CompareTag("LevelCompletion"))
         {
