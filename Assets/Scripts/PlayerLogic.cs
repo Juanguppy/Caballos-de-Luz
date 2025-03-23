@@ -108,11 +108,15 @@ public class PlayerLogic : MonoBehaviour
         }
 
         if (other.gameObject.CompareTag("HelpWall"))
-        {   
-            Debug.Log("Help wall detected");
-            if (audioSource != null && wallCollisionSound != null)
+        {   // TODO como hacer que solo pase si choca por delante del muro?
+            HelpWall helpWall = other.gameObject.GetComponent<HelpWall>();
+            if (helpWall != null)
             {
-                audioSource.PlayOneShot(wallCollisionSound);
+                helpWall.PlaySound();
+            }
+            else
+            {
+                Debug.LogWarning("HelpWall component not found on the collided object.");
             }
         }
         //  Marca el nivel como completado al tocar un objeto con el tag "LevelCompletion"
