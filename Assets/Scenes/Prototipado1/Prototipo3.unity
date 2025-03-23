@@ -391,6 +391,52 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!28 &144101663
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: VFXG_Falling_Sand_Rocks_B_PositionMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 6
+  m_Height: 1
+  m_CompleteImageSize: 96
+  m_MipsStripped: 0
+  m_TextureFormat: 20
+  m_MipCount: 1
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 96
+  _typelessdata: 08b940c1788dae42189da3c30000803f73d20dc263878d42fc3cb6c30000803f503131c1ba03a542667398c30000803f94531bc1da43ae42d4fc9dc30000803f644871c19e59a54298dd93c30000803f48efccc11b4bab42f2b7adc30000803f
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &155793745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1888,52 +1934,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -7.188, z: 0}
---- !u!28 &752415996
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: VFXG_Falling_Sand_Rocks_A_PositionMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 9
-  m_Height: 1
-  m_CompleteImageSize: 144
-  m_MipsStripped: 0
-  m_TextureFormat: 20
-  m_MipCount: 1
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 1
-  m_MipmapLimitGroupName: 
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_LightmapFormat: 0
-  m_ColorSpace: 1
-  m_PlatformBlob: 
-  image data: 144
-  _typelessdata: a2194642ec5cbd424d7e89c30000803f57e22f4268f2b74216dc82c30000803fc89050428667bc42e0588ec30000803f306a4a42a6c0bb4230ba92c30000803f281d61427e5db642938297c30000803fda5c7a42504dbb421a8a9fc30000803f94f897421463b242a1a0a8c30000803f08019e42354cb342d454b2c30000803f31eda742354cb3425653b9c30000803f
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &835439262 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 186974, guid: 55d30fa7a4f4642fca7249074edcc7e0, type: 3}
@@ -2251,11 +2251,11 @@ PrefabInstance:
     - target: {fileID: 873606921009702139, guid: c0c5c1f152b9fc44a8dc91451665f760, type: 3}
       propertyPath: m_PropertySheet.m_NamedObject.m_Array.Array.data[0].m_Value
       value: 
-      objectReference: {fileID: 752415996}
+      objectReference: {fileID: 1747573691}
     - target: {fileID: 2993892118262295031, guid: c0c5c1f152b9fc44a8dc91451665f760, type: 3}
       propertyPath: m_PropertySheet.m_NamedObject.m_Array.Array.data[0].m_Value
       value: 
-      objectReference: {fileID: 1055771114}
+      objectReference: {fileID: 144101663}
     - target: {fileID: 3641251155163695355, guid: c0c5c1f152b9fc44a8dc91451665f760, type: 3}
       propertyPath: m_Name
       value: VFX_Oasis
@@ -2560,52 +2560,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 78.287, z: 0}
---- !u!28 &1055771114
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: VFXG_Falling_Sand_Rocks_B_PositionMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 6
-  m_Height: 1
-  m_CompleteImageSize: 96
-  m_MipsStripped: 0
-  m_TextureFormat: 20
-  m_MipCount: 1
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 1
-  m_MipmapLimitGroupName: 
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_LightmapFormat: 0
-  m_ColorSpace: 1
-  m_PlatformBlob: 
-  image data: 96
-  _typelessdata: 08b940c1788dae42189da3c30000803f73d20dc263878d42fc3cb6c30000803f503131c1ba03a542667398c30000803f94531bc1da43ae42d4fc9dc30000803f644871c19e59a54298dd93c30000803f48efccc11b4bab42f2b7adc30000803f
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1001 &1179645569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2677,11 +2631,15 @@ PrefabInstance:
     - target: {fileID: 7773858294577357575, guid: b6863142b93bd4f41b8f16c6fb3fc42b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: c7c0a90f162c375448320d5be8ea69f4, type: 2}
+      objectReference: {fileID: 2100000, guid: bfd2f11f6b4e8fa46b203b74e6dd56e6, type: 2}
+    - target: {fileID: 7773858294577357575, guid: b6863142b93bd4f41b8f16c6fb3fc42b, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bfd2f11f6b4e8fa46b203b74e6dd56e6, type: 2}
     - target: {fileID: 7773858294577357575, guid: b6863142b93bd4f41b8f16c6fb3fc42b, type: 3}
       propertyPath: 'm_Materials.Array.data[2]'
       value: 
-      objectReference: {fileID: 2100000, guid: 9e4f9041be4c68e42891ba56626a954e, type: 2}
+      objectReference: {fileID: 2100000, guid: bfd2f11f6b4e8fa46b203b74e6dd56e6, type: 2}
     - target: {fileID: 7773858294581435847, guid: b6863142b93bd4f41b8f16c6fb3fc42b, type: 3}
       propertyPath: m_Controller
       value: 
@@ -3514,142 +3472,52 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!1 &1678414885
-GameObject:
+--- !u!28 &1747573691
+Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1678414890}
-  - component: {fileID: 1678414889}
-  - component: {fileID: 1678414888}
-  - component: {fileID: 1678414887}
-  - component: {fileID: 1678414891}
-  - component: {fileID: 1678414886}
-  m_Layer: 0
-  m_Name: Cubo nivel completo
-  m_TagString: LevelCompletion
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1678414886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1678414885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05bcbff734a3278428fa5b71fd9c831e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneIndex: 1
---- !u!65 &1678414887
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1678414885}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
+  m_Name: VFXG_Falling_Sand_Rocks_A_PositionMap
+  m_ImageContentsHash:
     serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1678414888
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1678414885}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1678414889
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1678414885}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1678414890
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1678414885}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 67.6, y: 45.1, z: -394.8}
-  m_LocalScale: {x: 92.61542, y: 11.450184, z: 23.271887}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1678414891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1678414885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a987158c9431f940b7522fc1a23fec4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelIndex: 1
+  m_Width: 9
+  m_Height: 1
+  m_CompleteImageSize: 144
+  m_MipsStripped: 0
+  m_TextureFormat: 20
+  m_MipCount: 1
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 144
+  _typelessdata: a2194642ec5cbd424d7e89c30000803f57e22f4268f2b74216dc82c30000803fc89050428667bc42e0588ec30000803f306a4a42a6c0bb4230ba92c30000803f281d61427e5db642938297c30000803fda5c7a42504dbb421a8a9fc30000803f94f897421463b242a1a0a8c30000803f08019e42354cb342d454b2c30000803f31eda742354cb3425653b9c30000803f
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &1827834892
 GameObject:
   m_ObjectHideFlags: 0
@@ -4522,7 +4390,6 @@ SceneRoots:
   - {fileID: 871444620}
   - {fileID: 3084975104033832293}
   - {fileID: 1179645569}
-  - {fileID: 1678414890}
   - {fileID: 444767646}
   - {fileID: 1986565171}
   - {fileID: 4691996695997090385}
