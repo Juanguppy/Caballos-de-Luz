@@ -21,6 +21,7 @@ TagManager:
   - FakeHorse
   - FakeEnemy
   - HelpWall
+  - BetaRemover
   layers:
   - Default
   - TransparentFX

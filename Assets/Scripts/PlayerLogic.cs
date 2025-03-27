@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerLogic : MonoBehaviour
 {
@@ -104,6 +105,7 @@ public class PlayerLogic : MonoBehaviour
     {
         if (other.gameObject.CompareTag("LevelLoader"))
         {
+            Debug.Log("LevelLoader");
             other.gameObject.GetComponent<ChangeScene>().ChangeToScene();
         }
 
@@ -127,6 +129,14 @@ public class PlayerLogic : MonoBehaviour
             {
                 levelCompletion.MarkLevelAsCompleted();
             }
+        }
+
+        // ONLY FOR DEV, THEN DELETE THIS CODE!!!!!!!! (ITS FOR BETA TESTING)
+        if(other.gameObject.CompareTag("BetaRemover"))
+        {
+            PlayerPrefs.DeleteAll(); PlayerPrefs.Save(); Debug.Log("All data has been deleted!!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
         }
     }
 }
