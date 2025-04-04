@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using TMPro;
 
 [RequireComponent(typeof(CharacterController))]
 public class WheelchairController : MonoBehaviour
@@ -18,11 +19,13 @@ public class WheelchairController : MonoBehaviour
     private bool previouslyGrounded;
     private Vector3 initialPosition;
     private AudioSource audioSource;
+    public int numRampas = 0; 
 
     // Variable para almacenar el martillo
     public GameObject hammer;
     public bool hasHammer = false;
 
+    [SerializeField] private TMP_Text rampasText;
     // Use this for initialization
     void Start()
     {
@@ -81,6 +84,8 @@ public class WheelchairController : MonoBehaviour
             //hammer.transform.position = transform.position + transform.forward * 0.5f + transform.up * 0.5f;
             //hammer.transform.rotation = transform.rotation;
         }
+
+        if (rampasText != null) rampasText.text = numRampas.ToString();
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -114,6 +119,12 @@ public class WheelchairController : MonoBehaviour
             Debug.Log("Hammer picked up");
 			Destroy(hit.gameObject);
         }
+        if (hit.gameObject.CompareTag("Rampa")){
+            numRampas++;
+            Destroy(hit.gameObject);
+            Debug.Log("Rampa picked up. Total rampas: " + numRampas);
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -130,6 +141,27 @@ public class WheelchairController : MonoBehaviour
             if (levelCompletion != null)
             {
                 levelCompletion.MarkLevelAsCompleted();
+            }
+        }
+
+        if (other.gameObject.CompareTag("RampaGenerator")){
+            RampaGenerator rampaGenerator = other.gameObject.GetComponent<RampaGenerator>();
+            if(numRampas > 0){
+                numRampas--;
+                Debug.Log("Rampa used. Remaining rampas: " + numRampas);
+                if (rampaGenerator == null){
+                    Debug.LogWarning("RampaGenerator component not found."); 
+                    return;
+                }
+                rampaGenerator.GenerateRampa(); 
+                Destroy(other.gameObject); 
+            } else {
+                Debug.Log("No rampas left to use.");
+                if(rampaGenerator.IsDown()){
+                    cc.enabled = false;
+                    transform.position = initialPosition;
+                    cc.enabled = true;
+                }
             }
         }
     }

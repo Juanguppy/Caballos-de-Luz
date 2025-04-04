@@ -22,6 +22,9 @@ TagManager:
   - FakeEnemy
   - HelpWall
   - BetaRemover
+  - Rampa
+  - Rampa_colocada
+  - RampaGenerator
   layers:
   - Default
   - TransparentFX
