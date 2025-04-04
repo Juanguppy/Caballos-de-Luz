@@ -6,14 +6,15 @@ public class BasciEnemy : MonoBehaviour
     public float detectionRange = 10f; // Rango de detección del jugador
     public float soundInterval = 5f; // Intervalo de tiempo entre sonidos
     public AudioClip alertSound; // Sonido que se reproducirá
-    private Animator animator;
-    private AudioSource audioSource;
-    private Transform playerTransform;
-    private float soundTimer;
-    private bool isPlayingSound;
+    
+    protected Animator animator;
+    protected AudioSource audioSource;
+    protected Transform playerTransform;
+    protected float soundTimer;
+    protected bool isPlayingSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected virtual void Start()
     {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
@@ -29,19 +30,19 @@ public class BasciEnemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         Move();
         CheckPlayerDistance();
     }
 
-    void Move()
+    protected virtual void Move()
     {
         // El enemigo se mueve hacia adelante
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    void CheckPlayerDistance()
+    protected void CheckPlayerDistance()
     {
         if (playerTransform != null)
         {
