@@ -15,6 +15,7 @@ public class PlayerLogic : MonoBehaviour
     protected float xRotation = 0f;
     protected bool isGrounded;
     protected AudioSource audioSource;
+    protected bool interactuando;
     
     protected virtual void Start()
     {
@@ -26,11 +27,13 @@ public class PlayerLogic : MonoBehaviour
         if (audioSource == null)
         {
             Debug.LogWarning("AudioSource component not found.");
-        }
+        } 
+        interactuando = false;
     }
 
     protected virtual void Update()
     {
+        if (interactuando) return;
         MovePlayer();
         RotateCamera();
         Jump();
@@ -138,5 +141,17 @@ public class PlayerLogic : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         }
+    }
+
+    public void InteractuarCaballo(){
+        interactuando = true;
+        Cursor.lockState = CursorLockMode.None; // Desbloquear el cursor
+        Cursor.visible = true; // Hacer visible el cursor
+    } 
+
+    public void DeInteractuarCaballo(){
+        interactuando = false;
+        Cursor.lockState = CursorLockMode.Locked; // Bloquear el cursor
+        Cursor.visible = false; // Hacer invisible el cursor
     }
 }
