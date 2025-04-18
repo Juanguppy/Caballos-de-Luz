@@ -5610,15 +5610,15 @@ PrefabInstance:
     - target: {fileID: 7773858294577357575, guid: b6863142b93bd4f41b8f16c6fb3fc42b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8461b4158b5fdcd44908221e9133089f, type: 2}
+      objectReference: {fileID: 2100000, guid: 9b3199ff2ffd1624cab3f91dfea48e44, type: 2}
     - target: {fileID: 7773858294577357575, guid: b6863142b93bd4f41b8f16c6fb3fc42b, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8461b4158b5fdcd44908221e9133089f, type: 2}
+      objectReference: {fileID: 2100000, guid: 9b3199ff2ffd1624cab3f91dfea48e44, type: 2}
     - target: {fileID: 7773858294577357575, guid: b6863142b93bd4f41b8f16c6fb3fc42b, type: 3}
       propertyPath: 'm_Materials.Array.data[2]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8461b4158b5fdcd44908221e9133089f, type: 2}
+      objectReference: {fileID: 2100000, guid: 9b3199ff2ffd1624cab3f91dfea48e44, type: 2}
     - target: {fileID: 7773858294581435847, guid: b6863142b93bd4f41b8f16c6fb3fc42b, type: 3}
       propertyPath: m_Controller
       value: 
