@@ -32,13 +32,14 @@ public class MazeGenerator1 : MonoBehaviour
             for (int y = 0; y < gridHeight; y++)
                 mazeGrid[x, y] = false;
 
-        Vector2Int[,] directions = new Vector2Int[]
+        Vector2Int[] directions =
         {
-            new Vector2Int(0, 2), // arriba
-            new Vector2Int(0, -2), // abajo
-            new Vector2Int(2, 0), // derecha
-            new Vector2Int(-2, 0) // izquierda
+            new Vector2Int(0, 2),     // arriba
+            new Vector2Int(0, -2),    // abajo
+            new Vector2Int(2, 0),     // derecha
+            new Vector2Int(-2, 0)     // izquierda
         };
+
 
         Stack<Vector2Int> stack = new Stack<Vector2Int>();
         Vector2Int current = new Vector2Int(1, 1);
