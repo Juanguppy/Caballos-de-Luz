@@ -1,16 +1,16 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class MazeGenerator1 : MonoBehaviour
+public class MazeGeneratorDFS : MonoBehaviour
 {
     public int width = 10;
     public int height = 10;
-    public int separation = 10;
+    public int separation = 5;
 
-    public GameObject wallPrefab = null;
-    public GameObject floorPrefab = null;
+    public GameObject wallPrefab;
+    public GameObject floorPrefab;
 
-    public Vector2Int start = new Vector2Int(0, 0);
+    public Vector2Int start;
     public Vector2Int goal;
 
     private bool[,] mazeGrid;
@@ -19,6 +19,7 @@ public class MazeGenerator1 : MonoBehaviour
     [ContextMenu("Generar Laberinto")]
     public void GenerateMazeInEditor()
     {
+        // Limpiar laberinto anterior
         foreach (Transform child in transform)
             DestroyImmediate(child.gameObject);
 
@@ -27,20 +28,19 @@ public class MazeGenerator1 : MonoBehaviour
 
         mazeGrid = new bool[gridWidth, gridHeight];
 
-        // Inicializa todo como paredes
+        // Llenar todo de paredes
         for (int x = 0; x < gridWidth; x++)
             for (int y = 0; y < gridHeight; y++)
                 mazeGrid[x, y] = false;
 
-        Vector2Int[] directions =
-        {
+        Vector2Int[] directions = {
             new Vector2Int(0, 2),     // arriba
             new Vector2Int(0, -2),    // abajo
             new Vector2Int(2, 0),     // derecha
             new Vector2Int(-2, 0)     // izquierda
         };
 
-
+        // DFS para generar caminos
         Stack<Vector2Int> stack = new Stack<Vector2Int>();
         Vector2Int current = new Vector2Int(1, 1);
         mazeGrid[current.x, current.y] = true;
@@ -54,26 +54,32 @@ public class MazeGenerator1 : MonoBehaviour
             foreach (var dir in directions)
             {
                 Vector2Int neighbor = current + dir;
-                if (neighbor.x > 0 && neighbor.y > 0 && neighbor.x < gridWidth - 1 && neighbor.y < gridHeight - 1)
+                if (neighbor.x > 0 && neighbor.x < gridWidth - 1 &&
+                    neighbor.y > 0 && neighbor.y < gridHeight - 1 &&
+                    !mazeGrid[neighbor.x, neighbor.y])
                 {
-                    if (!mazeGrid[neighbor.x, neighbor.y])
-                        neighbors.Add(neighbor);
+                    neighbors.Add(neighbor);
                 }
             }
 
             if (neighbors.Count > 0)
             {
                 stack.Push(current);
-                Vector2Int chosen = neighbors[rng.Next(neighbors.Count)];
-                Vector2Int wall = (current + chosen) / 2;
 
-                mazeGrid[wall.x, wall.y] = true;       // abrir muro intermedio
-                mazeGrid[chosen.x, chosen.y] = true;   // marcar vecino
+                Vector2Int chosen = neighbors[rng.Next(neighbors.Count)];
+                Vector2Int wall = current + (chosen - current) / 2;
+
+                mazeGrid[wall.x, wall.y] = true;
+                mazeGrid[chosen.x, chosen.y] = true;
                 stack.Push(chosen);
             }
         }
 
-        // Instanciar laberinto
+        // Posición aleatoria para entrada/salida (esquinas opuestas)
+        start = new Vector2Int(1, 1);
+        goal = new Vector2Int(gridWidth - 2, gridHeight - 2);
+
+        // Instanciar objetos
         for (int x = 0; x < gridWidth; x++)
         {
             for (int y = 0; y < gridHeight; y++)
@@ -81,7 +87,13 @@ public class MazeGenerator1 : MonoBehaviour
                 Vector3 pos = new Vector3(x * separation, 0, y * separation);
                 if (mazeGrid[x, y])
                 {
-                    Instantiate(floorPrefab, pos, Quaternion.identity, transform);
+                    GameObject tile = Instantiate(floorPrefab, pos, Quaternion.identity, transform);
+
+                    // Colorea entrada y salida
+                    if (x == start.x && y == start.y)
+                        tile.GetComponent<Renderer>().material.color = Color.green;
+                    else if (x == goal.x && y == goal.y)
+                        tile.GetComponent<Renderer>().material.color = Color.red;
                 }
                 else
                 {
@@ -90,9 +102,6 @@ public class MazeGenerator1 : MonoBehaviour
             }
         }
 
-        // Definir inicio y objetivo en coordenadas de la malla
-        start = new Vector2Int(1, 1);
-        goal = new Vector2Int(gridWidth - 2, gridHeight - 2);
-        Debug.Log("Inicio: " + start + " / Objetivo: " + goal);
+        Debug.Log($"Laberinto generado. Inicio: {start}, Objetivo: {goal}");
     }
 }
