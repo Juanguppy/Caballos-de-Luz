@@ -88,5 +88,11 @@ public class BasciEnemy : MonoBehaviour
             // Si choca con el jugador, el jugador vuelve a la posición inicial
             Debug.Log("PlayerManager: OnCollisionEnter: Enemy --- Player");
         }
+
+        if (collision.gameObject.CompareTag("EnemyDestroyer"))
+        {
+            Debug.Log("Enemy destroyed by EnemyDestroyer"); 
+            Destroy(this.gameObject);
+        }
     }
 }

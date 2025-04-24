@@ -83,6 +83,9 @@ public class WheelchairController : MonoBehaviour
             hammer.SetActive(true);
             //hammer.transform.position = transform.position + transform.forward * 0.5f + transform.up * 0.5f;
             //hammer.transform.rotation = transform.rotation;
+        } else if (hammer != null)
+        {
+            hammer.SetActive(false);
         }
 
         if (rampasText != null) rampasText.text = numRampas.ToString();
@@ -123,6 +126,10 @@ public class WheelchairController : MonoBehaviour
             numRampas++;
             Destroy(hit.gameObject);
             Debug.Log("Rampa picked up. Total rampas: " + numRampas);
+        }
+        if(hit.gameObject.CompareTag("FueraMartillo")){
+            hasHammer = false;
+            Destroy(hit.gameObject);
         }
         
     }

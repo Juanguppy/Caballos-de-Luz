@@ -25,6 +25,8 @@ TagManager:
   - Rampa
   - Rampa_colocada
   - RampaGenerator
+  - FueraMartillo
+  - EnemyDestroyer
   layers:
   - Default
   - TransparentFX
