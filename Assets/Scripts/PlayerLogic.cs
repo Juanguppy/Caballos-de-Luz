@@ -10,12 +10,14 @@ public class PlayerLogic : MonoBehaviour
     public Transform cameraTransform;
     public Vector3 initialPosition;
     public AudioClip wallCollisionSound;
+    [SerializeField] public CloseMenu interactionCanvas;
 
     protected Rigidbody rb;
     protected float xRotation = 0f;
     protected bool isGrounded;
     protected AudioSource audioSource;
     protected bool interactuando;
+    protected bool interactuandoCanvas;
     
     protected virtual void Start()
     {
@@ -37,6 +39,17 @@ public class PlayerLogic : MonoBehaviour
         MovePlayer();
         RotateCamera();
         Jump();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (interactionCanvas != null && !interactuandoCanvas)
+            {
+                OpenInteractionCanvas();
+            }
+            else if (interactionCanvas != null && interactuandoCanvas)
+            {
+                CloseInteractionCanvas();
+            }
+        }
     }
 
     protected virtual void MovePlayer()
@@ -153,5 +166,31 @@ public class PlayerLogic : MonoBehaviour
         interactuando = false;
         Cursor.lockState = CursorLockMode.Locked; // Bloquear el cursor
         Cursor.visible = false; // Hacer invisible el cursor
+    }
+
+    public void OpenInteractionCanvas()
+    {
+        if (interactionCanvas != null)
+        {
+            interactuandoCanvas = true;
+            interactionCanvas.OpenMenu();
+        }
+        else
+        {
+            Debug.LogWarning("Interaction canvas not assigned.");
+        }
+    }
+
+    public void CloseInteractionCanvas()
+    {
+        if (interactionCanvas != null)
+        {
+            interactuandoCanvas = false;
+            interactionCanvas.ExitMenu();
+        }
+        else
+        {
+            Debug.LogWarning("Interaction canvas not assigned.");
+        }
     }
 }
