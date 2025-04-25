@@ -10,6 +10,9 @@ public class WheelchairController : MonoBehaviour
     [SerializeField] private float turnSpeed = 2.5f;
     [SerializeField] private float slopeResistance = 25;
     [SerializeField] private float stickToGroundForce = 10;
+    
+
+    private bool interactuandoCanvas; 
 
     public AudioClip wallCollisionSound;
     private CharacterController cc;
@@ -24,6 +27,7 @@ public class WheelchairController : MonoBehaviour
     // Variable para almacenar el martillo
     public GameObject hammer;
     public bool hasHammer = false;
+    [SerializeField] public CloseMenu interactionCanvas;
 
     [SerializeField] private TMP_Text rampasText;
     // Use this for initialization
@@ -89,6 +93,18 @@ public class WheelchairController : MonoBehaviour
         }
 
         if (rampasText != null) rampasText.text = numRampas.ToString();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (interactionCanvas != null && !interactuandoCanvas)
+            {
+                OpenInteractionCanvas();
+            }
+            else if (interactionCanvas != null && interactuandoCanvas)
+            {
+                CloseInteractionCanvas();
+            }
+        }
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -170,6 +186,32 @@ public class WheelchairController : MonoBehaviour
                     cc.enabled = true;
                 }
             }
+        }
+    }
+
+     public void OpenInteractionCanvas()
+    {
+        if (interactionCanvas != null)
+        {
+            interactuandoCanvas = true;
+            interactionCanvas.OpenMenu();
+        }
+        else
+        {
+            Debug.LogWarning("Interaction canvas not assigned.");
+        }
+    }
+
+    public void CloseInteractionCanvas()
+    {
+        if (interactionCanvas != null)
+        {
+            interactuandoCanvas = false;
+            interactionCanvas.ExitMenu();
+        }
+        else
+        {
+            Debug.LogWarning("Interaction canvas not assigned.");
         }
     }
 }
