@@ -5,6 +5,7 @@ public class FollowerEnemy : BasciEnemy
 
     private Vector3 initialPosition; 
     private float returnThreshold = 0.5f;
+    private Rigidbody rb;
 
     protected override void Start()
     {
@@ -12,37 +13,58 @@ public class FollowerEnemy : BasciEnemy
         animator.SetBool("idle", true);
 
         initialPosition = transform.position;
+         rb = GetComponent<Rigidbody>();
     }
 
     protected override void Move()
     {
-        if (playerTransform != null)
+        if (playerTransform == null) return;
+
+        Vector3 targetDirection = Vector3.zero;
+        bool isMoving = false;
+
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+
+        if (distanceToPlayer <= detectionRange)
         {
-            // Calcular la distancia al jugador
-            float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+            targetDirection = (playerTransform.position - transform.position).normalized;
+            isMoving = true;
+        }
+        else if (Vector3.Distance(transform.position, initialPosition) > returnThreshold)
+        {
+            targetDirection = (initialPosition - transform.position).normalized;
+            isMoving = true;
+        }
 
-            // Si el jugador está dentro del rango de detección, perseguirlo
-            if (distanceToPlayer <= detectionRange) {
-                Vector3 directionToPlayer = (playerTransform.position - transform.position).normalized;
-                transform.position += directionToPlayer * speed * Time.deltaTime;
-                animator.SetBool("idle", false);
+        if (isMoving)
+        {
+            // Movimiento físico que respeta colisiones
+            Vector3 newPosition = rb.position + targetDirection * speed * Time.fixedDeltaTime;
+            rb.MovePosition(newPosition);
 
-                // Rotar hacia el jugador
-                Quaternion lookRotation = Quaternion.LookRotation(directionToPlayer);
-                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-            } else if (Vector3.Distance(transform.position, initialPosition) > returnThreshold) {
-                Vector3 directionToInitial = (initialPosition - transform.position).normalized;
-                transform.position += directionToInitial * speed * Time.deltaTime;
-                animator.SetBool("idle", false);
+            // Rotación suave
+            Quaternion lookRotation = Quaternion.LookRotation(targetDirection);
+            Quaternion newRotation = Quaternion.Slerp(rb.rotation, lookRotation, Time.deltaTime * 5f);
+            rb.MoveRotation(newRotation);
 
-                Quaternion lookRotation = Quaternion.LookRotation(directionToInitial);
-                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
-            } else {
-                animator.SetBool("idle", true);
-            }
+
+            animator.SetBool("idle", false);
+        }
+        else
+        {
+            animator.SetBool("idle", true);
         }
     }
 
+
+    protected virtual void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            rb.MovePosition(initialPosition);
+
+        }
+    }
     // para dibujar el rango de detección en la escena
     private void OnDrawGizmosSelected()
     {
@@ -50,4 +72,10 @@ public class FollowerEnemy : BasciEnemy
 
         Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
+    
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
 }
