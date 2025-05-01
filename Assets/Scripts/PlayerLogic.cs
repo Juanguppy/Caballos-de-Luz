@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,6 +22,9 @@ public class PlayerLogic : MonoBehaviour
     protected bool canInteract = true;
     protected float interactTimer = 0f;
     protected float interactDelay = 7f;
+
+    /// Controles
+    private Dictionary<string, KeyCode> keyMappings;
     
     protected virtual void Start()
     {
@@ -34,6 +38,18 @@ public class PlayerLogic : MonoBehaviour
             Debug.LogWarning("AudioSource component not found.");
         } 
         interactuando = false;
+
+        keyMappings = new Dictionary<string, KeyCode>
+        {
+            { "Jump", KeyCode.Space },
+            { "Sprint", KeyCode.LeftShift },
+            { "MoveForward", KeyCode.W },
+            { "MoveBackward", KeyCode.S },
+            { "MoveLeft", KeyCode.A },
+            { "MoveRight", KeyCode.D }
+        };
+
+        LoadKeys();
     }
 
     protected virtual void Update()
@@ -65,14 +81,19 @@ public class PlayerLogic : MonoBehaviour
 
     protected virtual void MovePlayer()
     {
-        float moveSpeedCurrent = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : moveSpeed;
+        float moveSpeedCurrent = Input.GetKey(keyMappings["Sprint"]) ? sprintSpeed : moveSpeed;
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float x = 0f;
+        float z = 0f;
+
+        if (Input.GetKey(keyMappings["MoveForward"])) z += 1f;
+        if (Input.GetKey(keyMappings["MoveBackward"])) z -= 1f;
+        if (Input.GetKey(keyMappings["MoveRight"])) x += 1f;
+        if (Input.GetKey(keyMappings["MoveLeft"])) x -= 1f;
 
         Vector3 move = transform.right * x + transform.forward * z;
         Vector3 velocity = new Vector3(move.x * moveSpeedCurrent, rb.linearVelocity.y, move.z * moveSpeedCurrent);
-        
+
         rb.linearVelocity = velocity;
     }
 
@@ -87,10 +108,9 @@ public class PlayerLogic : MonoBehaviour
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
     }
-
     protected virtual void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(keyMappings["Jump"]) && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
@@ -209,5 +229,34 @@ public class PlayerLogic : MonoBehaviour
 
     public bool CanInteract(){
         return !interactuando && canInteract;
+    }
+
+    //////////////////////////////////// 
+    /// Personalización de controles ///
+    ////////////////////////////////////
+     
+    public void SetKey(string action, KeyCode newKey)
+    {
+        if (keyMappings.ContainsKey(action))
+        {
+            keyMappings[action] = newKey; // Actualizar el diccionario
+            PlayerPrefs.SetString(action, newKey.ToString()); // Guardar en PlayerPrefs
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            Debug.LogWarning($"Action '{action}' not found in key mappings.");
+        }
+    }
+
+    public void LoadKeys()
+    {
+        foreach (var action in keyMappings.Keys)
+        {
+            if (PlayerPrefs.HasKey(action))
+            {
+                keyMappings[action] = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString(action));
+            }
+        }
     }
 }
