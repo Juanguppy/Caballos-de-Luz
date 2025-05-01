@@ -23,6 +23,7 @@ public class BasicHorse : MonoBehaviour
     [SerializeField] private TextMeshProUGUI horseNameText; // Texto para el nombre del caballo
     [SerializeField] private TextMeshProUGUI horseDescriptionText; // Texto para la descripción del caballo
     private PlayerLogic playerLogic;
+    private Coroutine playAudioCoroutine; // Coroutine para reproducir audio y subtítulos
 
     void Start()
     {
@@ -90,13 +91,14 @@ public class BasicHorse : MonoBehaviour
             if(isIdle) return; // el caballo del nivel no puede interactuar con el jugador
             // El caballo interactúa con el jugador
             Debug.Log("Neigh! The horse bumped into the player!");
-            StopAndFacePlayer();
+            PlayerLogic player = collision.gameObject.GetComponent<PlayerLogic>();
+            StopAndFacePlayer(player);
         }
     }
 
-    void StopAndFacePlayer()
+    void StopAndFacePlayer(PlayerLogic player)
     {
-        // Detener el movimiento del caballo
+        if (!player.CanInteract()) return;
         isIdle = true;
         if (animator != null)
         {
@@ -127,12 +129,13 @@ public class BasicHorse : MonoBehaviour
             animator.SetBool("Idle", false);
             animator.SetBool("walking", true);
         }
+        StopAudio();
     }
 
     public void ObtenerInformacion(){
         if (audioSource != null && horseAudioClip != null)
         {
-            StartCoroutine(PlayAudioWithSubtitles());
+            this.playAudioCoroutine = StartCoroutine(PlayAudioWithSubtitles());
         }
     }
 
@@ -165,6 +168,15 @@ public class BasicHorse : MonoBehaviour
         // Limpiar subtítulos al finalizar
         yield return new WaitForSeconds(horseAudioClip.length - subtitleTimings[subtitleTimings.Length - 1]);
         subtitlesText.text = "";
+    }
+
+    private void StopAudio(){
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+            StopCoroutine(this.playAudioCoroutine);
+            subtitlesText.text = "";
+        }
     }
 
     void CargarDialogoDesdeCSV()

@@ -18,6 +18,9 @@ public class PlayerLogic : MonoBehaviour
     protected AudioSource audioSource;
     protected bool interactuando;
     protected bool interactuandoCanvas;
+    protected bool canInteract = true;
+    protected float interactTimer = 0f;
+    protected float interactDelay = 7f;
     
     protected virtual void Start()
     {
@@ -48,6 +51,14 @@ public class PlayerLogic : MonoBehaviour
             else if (interactionCanvas != null && interactuandoCanvas)
             {
                 CloseInteractionCanvas();
+            }
+        }
+        if (!canInteract){
+            interactTimer += Time.deltaTime;
+            if (interactTimer >= interactDelay)
+            {
+                canInteract = true;
+                interactTimer = 0f;
             }
         }
     }
@@ -157,6 +168,7 @@ public class PlayerLogic : MonoBehaviour
     }
 
     public void InteractuarCaballo(){
+        if(interactuando || !canInteract) return;
         interactuando = true;
         Cursor.lockState = CursorLockMode.None; // Desbloquear el cursor
         Cursor.visible = true; // Hacer visible el cursor
@@ -166,6 +178,7 @@ public class PlayerLogic : MonoBehaviour
         interactuando = false;
         Cursor.lockState = CursorLockMode.Locked; // Bloquear el cursor
         Cursor.visible = false; // Hacer invisible el cursor
+        canInteract = false;
     }
 
     public void OpenInteractionCanvas()
@@ -192,5 +205,9 @@ public class PlayerLogic : MonoBehaviour
         {
             Debug.LogWarning("Interaction canvas not assigned.");
         }
+    }
+
+    public bool CanInteract(){
+        return !interactuando && canInteract;
     }
 }
