@@ -4,9 +4,13 @@ using UnityEngine.SceneManagement;
 public class CloseMenu : MonoBehaviour
 {
     public void ExitMenu(){
-        this.gameObject.SetActive(false);       
+       this.gameObject.SetActive(false);       
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        PlayerLogic player = FindObjectOfType<PlayerLogic>();
+        if (player == null) return;
+        player.interactuandoCanvas = false;
+
     }
 
     public void OpenMenu(){

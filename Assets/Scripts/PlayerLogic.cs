@@ -17,7 +17,7 @@ public class PlayerLogic : MonoBehaviour
     protected bool isGrounded;
     protected AudioSource audioSource;
     protected bool interactuando;
-    protected bool interactuandoCanvas;
+    public bool interactuandoCanvas;
     protected bool canInteract = true;
     protected float interactTimer = 0f;
     protected float interactDelay = 7f;

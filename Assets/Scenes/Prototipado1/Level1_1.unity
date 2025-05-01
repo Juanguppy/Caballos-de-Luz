@@ -4789,6 +4789,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1482098844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1610975658 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7683932275250821590, guid: dde40c645f6dc5b4fb78bd2c9e956747, type: 3}
+  m_PrefabInstance: {fileID: 2057870461}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25f7f0dc7487a1f4687fdd8363ea958f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1611836452
 GameObject:
   m_ObjectHideFlags: 0
@@ -5915,6 +5926,10 @@ PrefabInstance:
       propertyPath: rampasText
       value: 
       objectReference: {fileID: 972255229}
+    - target: {fileID: 4459243678825641985, guid: dde40c645f6dc5b4fb78bd2c9e956747, type: 3}
+      propertyPath: interactionCanvas
+      value: 
+      objectReference: {fileID: 1610975658}
     - target: {fileID: 8419259343691276085, guid: dde40c645f6dc5b4fb78bd2c9e956747, type: 3}
       propertyPath: m_Name
       value: WheelchairController
