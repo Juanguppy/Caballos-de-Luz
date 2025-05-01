@@ -4830,6 +4830,10 @@ PrefabInstance:
       propertyPath: interactionCanvas
       value: 
       objectReference: {fileID: 873509235}
+    - target: {fileID: 6255375466565973005, guid: dde40c645f6dc5b4fb78bd2c9e956747, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 8419259343691276085, guid: dde40c645f6dc5b4fb78bd2c9e956747, type: 3}
       propertyPath: m_Name
       value: WheelchairController

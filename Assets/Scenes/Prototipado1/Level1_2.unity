@@ -1648,7 +1648,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &184199060
 RectTransform:
@@ -10628,6 +10628,7 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   wallCollisionSound: {fileID: 8300000, guid: 8588b9de4aa5fa446a095d3281c08f80, type: 3}
   interactionCanvas: {fileID: 184199056}
+  interactuandoCanvas: 0
   squizoSound: {fileID: 8300000, guid: 26fbf6bb6963666478f6992bc53b9145, type: 3}
   squizoCanvas: {fileID: 2084610326}
   alucinacionSound: {fileID: 8300000, guid: 17af5d79b4f10c344bdf4ba78e20eda1, type: 3}
