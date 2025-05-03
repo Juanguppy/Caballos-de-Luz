@@ -3,6 +3,7 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 public class BasicHorse : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class BasicHorse : MonoBehaviour
     public string[] subtitles; // Subtítulos para el caballo
     public float[] subtitleTimings; // Tiempos para cada línea de subtítulos
     public string caballoId; // Por ejemplo: "EstrellaClara"
+    public string caballoDescription; 
 
 
     [SerializeField] private GameObject interactionMenu; // Menú de interacción (Canvas)
@@ -38,6 +40,15 @@ public class BasicHorse : MonoBehaviour
             
             if (interactionMenu != null) interactionMenu.SetActive(false); 
             CargarDialogoDesdeCSV();
+            if (!string.IsNullOrEmpty(caballoId) && horseNameText != null)
+            {
+                horseNameText.text = string.Concat(caballoId.Select((c, i) => i > 0 && char.IsUpper(c) ? " " + c : c.ToString()));
+            }
+            if(caballoDescription != null && caballoDescription != ""){
+                horseDescriptionText.text = caballoDescription;
+            } else {
+                horseDescriptionText.text = "No hay descripción disponible.";
+            }
 
         }
         if (isIdle) // If the horse is idle, it stops walking
