@@ -3630,7 +3630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5029951585985248877, guid: e5012aab56f1a6b4e8636169eec80201, type: 3}
       propertyPath: speed
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5029951585985248877, guid: e5012aab56f1a6b4e8636169eec80201, type: 3}
       propertyPath: detectionRange
