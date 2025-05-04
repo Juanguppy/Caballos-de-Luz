@@ -10,6 +10,8 @@ public class Spawner : MonoBehaviour
     private float pauseTimer; // Temporizador para controlar los 30 segundos de actividad
     private bool isPaused = false; // Indica si el spawner está en pausa
 
+    public bool isSquizo = false; 
+
     void Start()
     {
         timer = spawnInterval; // Inicializar el temporizador de spawn
@@ -19,7 +21,7 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         // Controlar el temporizador de pausa
-        if (isPaused)
+        if (isPaused && !isSquizo)
         {
             pauseTimer -= Time.deltaTime;
 
@@ -50,6 +52,13 @@ public class Spawner : MonoBehaviour
         {
             SpawnObject();
             timer = spawnInterval; // Reiniciar el temporizador de spawn
+        }
+        if (isSquizo){
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if(player == null) return;
+            Vector3 direction = player.transform.position - transform.position;
+            direction.y = 0;
+            this.transform.rotation = Quaternion.LookRotation(direction);
         }
     }
 

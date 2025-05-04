@@ -41,6 +41,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prototipado1/Level2_1.unity
     guid: c8846f0e85b9cec4f9d71ab532e9c5ec
+  - enabled: 1
+    path: Assets/Scenes/Prototipado1/Level2_2.unity
+    guid: d7316518ece04574a9c138d95a845964
+  - enabled: 1
+    path: Assets/Scenes/Prototipado1/Level2_3.unity
+    guid: dbcb2cf38bc1ab5459abbd550b7356ba
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 290a6e6411d135049940bec2237b8938, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}

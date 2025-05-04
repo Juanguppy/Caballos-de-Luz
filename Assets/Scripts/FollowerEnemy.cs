@@ -28,11 +28,13 @@ public class FollowerEnemy : BasciEnemy
         if (distanceToPlayer <= detectionRange)
         {
             targetDirection = (playerTransform.position - transform.position).normalized;
+            targetDirection.y = 0; // Asegurarse de que el movimiento sea horizontal
             isMoving = true;
         }
         else if (Vector3.Distance(transform.position, initialPosition) > returnThreshold)
         {
             targetDirection = (initialPosition - transform.position).normalized;
+            targetDirection.y = 0; // Asegurarse de que el movimiento sea horizontal
             isMoving = true;
         }
 

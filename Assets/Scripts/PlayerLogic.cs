@@ -120,7 +120,7 @@ public class PlayerLogic : MonoBehaviour
             isGrounded = true;
         }
 
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Enemy2"))
         {
             transform.position = initialPosition;
         }

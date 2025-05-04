@@ -27,6 +27,8 @@ TagManager:
   - RampaGenerator
   - FueraMartillo
   - EnemyDestroyer
+  - DrugSealer
+  - Enemy2
   layers:
   - Default
   - TransparentFX
