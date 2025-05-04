@@ -12944,7 +12944,8 @@ MonoBehaviour:
   alucinacionSound: {fileID: 8300000, guid: 17af5d79b4f10c344bdf4ba78e20eda1, type: 3}
   alucinacionTime: 60
   alucinacionTimer: 55
-  efectosTime: 60
+  efectosTimer: 0
+  efectosTime: 45
   efectosCanvas: {fileID: 625487895}
   efectosText: {fileID: 1875831013}
 --- !u!4 &500584003 stripped
