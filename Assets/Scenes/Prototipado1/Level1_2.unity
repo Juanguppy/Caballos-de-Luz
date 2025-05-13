@@ -2168,6 +2168,7 @@ MonoBehaviour:
   subtitles: []
   subtitleTimings: []
   caballoId: 
+  caballoDescription: 
   interactionMenu: {fileID: 0}
   subtitlesText: {fileID: 0}
   audioSource: {fileID: 0}
@@ -3214,8 +3215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1535fc7b5b3f30d45a79f4858dd47d9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 75
-  detectionRange: 200
+  speed: 25
+  detectionRange: 120
   soundInterval: 5
   alertSound: {fileID: 0}
 --- !u!54 &401485188
@@ -5540,6 +5541,7 @@ MonoBehaviour:
   subtitles: []
   subtitleTimings: []
   caballoId: 
+  caballoDescription: 
   interactionMenu: {fileID: 0}
   subtitlesText: {fileID: 0}
   audioSource: {fileID: 0}
@@ -7886,6 +7888,67 @@ MonoBehaviour:
   detectionRange: 10
   soundInterval: 5
   alertSound: {fileID: 0}
+--- !u!1001 &1284272368
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7040936740412084637, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_Name
+      value: ReyCaballo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5883789
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 28.743988
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -204.16156
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6957917
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7182437
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 91.819
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867992022718549999, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f30d733573de3f7499f4caf8a2d2e0bc, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
 --- !u!1001 &1317174626
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8014,6 +8077,7 @@ MonoBehaviour:
   subtitles: []
   subtitleTimings: []
   caballoId: 
+  caballoDescription: 
   interactionMenu: {fileID: 0}
   subtitlesText: {fileID: 0}
   audioSource: {fileID: 0}
@@ -10629,11 +10693,16 @@ MonoBehaviour:
   wallCollisionSound: {fileID: 8300000, guid: 8588b9de4aa5fa446a095d3281c08f80, type: 3}
   interactionCanvas: {fileID: 184199056}
   interactuandoCanvas: 0
+  controlsManager: {fileID: 0}
   squizoSound: {fileID: 8300000, guid: 26fbf6bb6963666478f6992bc53b9145, type: 3}
   squizoCanvas: {fileID: 2084610326}
   alucinacionSound: {fileID: 8300000, guid: 17af5d79b4f10c344bdf4ba78e20eda1, type: 3}
   alucinacionTime: 60
   alucinacionTimer: 55
+  efectosTimer: 0
+  efectosTime: 45
+  efectosCanvas: {fileID: 0}
+  efectosText: {fileID: 0}
 --- !u!1 &1778471114 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4045928232392574246, guid: e0307081c164aaf4a90933f08206654c, type: 3}
@@ -10826,6 +10895,7 @@ MonoBehaviour:
   subtitles: []
   subtitleTimings: []
   caballoId: 
+  caballoDescription: 
   interactionMenu: {fileID: 0}
   subtitlesText: {fileID: 0}
   audioSource: {fileID: 0}
@@ -10932,15 +11002,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4544219117696442, guid: e2aafa8770d34a9591b41bedf4e318ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -150.8
+      value: -160.1
       objectReference: {fileID: 0}
     - target: {fileID: 4544219117696442, guid: e2aafa8770d34a9591b41bedf4e318ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 33.7
+      value: 50.9
       objectReference: {fileID: 0}
     - target: {fileID: 4544219117696442, guid: e2aafa8770d34a9591b41bedf4e318ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -221.4
+      value: -222.2
       objectReference: {fileID: 0}
     - target: {fileID: 4544219117696442, guid: e2aafa8770d34a9591b41bedf4e318ba, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13075,3 +13145,4 @@ SceneRoots:
   - {fileID: 1969552351}
   - {fileID: 496384274}
   - {fileID: 889428529}
+  - {fileID: 1284272368}

@@ -29,6 +29,7 @@ TagManager:
   - EnemyDestroyer
   - DrugSealer
   - Enemy2
+  - ReyCaballo
   layers:
   - Default
   - TransparentFX

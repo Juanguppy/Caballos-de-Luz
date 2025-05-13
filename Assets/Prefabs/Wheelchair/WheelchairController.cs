@@ -10,9 +10,8 @@ public class WheelchairController : MonoBehaviour
     [SerializeField] private float turnSpeed = 2.5f;
     [SerializeField] private float slopeResistance = 25;
     [SerializeField] private float stickToGroundForce = 10;
-    
 
-    private bool interactuandoCanvas; 
+    private bool interactuandoCanvas;
 
     public AudioClip wallCollisionSound;
     private CharacterController cc;
@@ -22,15 +21,17 @@ public class WheelchairController : MonoBehaviour
     private bool previouslyGrounded;
     private Vector3 initialPosition;
     private AudioSource audioSource;
-    public int numRampas = 0; 
+    public int numRampas = 0;
 
-    // Variable para almacenar el martillo
     public GameObject hammer;
     public bool hasHammer = false;
     [SerializeField] public CloseMenu interactionCanvas;
 
     [SerializeField] private TMP_Text rampasText;
-    // Use this for initialization
+
+    // --- CONTROLES PERSONALIZADOS ---
+    [SerializeField] private ControlsManager controlsManager;
+
     void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -44,11 +45,20 @@ public class WheelchairController : MonoBehaviour
 
         if (hammer != null)
         {
-            hammer.SetActive(false); // Asegúrate de que el martillo esté desactivado al inicio
+            hammer.SetActive(false);
+        }
+
+        // Cargar ControlsManager si no está asignado
+        if (controlsManager == null)
+        {
+            controlsManager = FindObjectOfType<ControlsManager>();
+            if (controlsManager == null)
+            {
+                Debug.LogError("ControlsManager not found in the scene.");
+            }
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (cc.isGrounded)
@@ -65,15 +75,30 @@ public class WheelchairController : MonoBehaviour
             previouslyGrounded = false;
         }
 
-        transform.Rotate(0, Input.GetAxis("Horizontal") * turnSpeed, 0);
+        // --- CONTROLES PERSONALIZADOS PARA MOVIMIENTO Y GIRO ---
+        float vertical = 0f;
+        float horizontal = 0f;
 
-        Vector3 desiredMove = transform.forward * Input.GetAxis("Vertical") * moveSpeed;
+        if (controlsManager != null)
+        {
+            if (Input.GetKey(controlsManager.GetKey("Adelante"))) vertical += 1f;
+            if (Input.GetKey(controlsManager.GetKey("Atrás"))) vertical -= 1f;
+            if (Input.GetKey(controlsManager.GetKey("Derecha"))) horizontal += 1f;
+            if (Input.GetKey(controlsManager.GetKey("Izquierda"))) horizontal -= 1f;
+        }
+        else
+        {
+            vertical = Input.GetAxis("Vertical");
+            horizontal = Input.GetAxis("Horizontal");
+        }
+
+        transform.Rotate(0, horizontal * turnSpeed, 0);
+        Vector3 desiredMove = transform.forward * vertical * moveSpeed;
 
         RaycastHit hitInfo;
         Physics.SphereCast(transform.position, cc.radius, Vector3.down, out hitInfo, cc.height / 2f);
         desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal);
 
-        // Slide down slopes
         float hitAngle = Vector3.Angle(hitInfo.normal, Vector3.up);
         float slopeEffect = Mathf.Clamp01((hitAngle - slopeResistance) / cc.slopeLimit);
         Vector3 slideForce = new Vector3(hitInfo.normal.x, -hitInfo.normal.y, hitInfo.normal.z) * slopeEffect;
@@ -81,13 +106,11 @@ public class WheelchairController : MonoBehaviour
 
         cc.Move((velocity + desiredMove + slideForce) * Time.deltaTime);
 
-        // Renderizar el martillo si ha sido recogido
         if (hasHammer && hammer != null)
         {
             hammer.SetActive(true);
-            //hammer.transform.position = transform.position + transform.forward * 0.5f + transform.up * 0.5f;
-            //hammer.transform.rotation = transform.rotation;
-        } else if (hammer != null)
+        }
+        else if (hammer != null)
         {
             hammer.SetActive(false);
         }
@@ -128,26 +151,25 @@ public class WheelchairController : MonoBehaviour
                 Debug.Log("Playing sound");
                 audioSource.PlayOneShot(wallCollisionSound);
             }
-
         }
 
         if (hit.gameObject.CompareTag("Hammer"))
         {
-            // Recoger el martillo
             hasHammer = true;
             Debug.Log("Hammer picked up");
-			Destroy(hit.gameObject);
+            Destroy(hit.gameObject);
         }
-        if (hit.gameObject.CompareTag("Rampa")){
+        if (hit.gameObject.CompareTag("Rampa"))
+        {
             numRampas++;
             Destroy(hit.gameObject);
             Debug.Log("Rampa picked up. Total rampas: " + numRampas);
         }
-        if(hit.gameObject.CompareTag("FueraMartillo")){
+        if (hit.gameObject.CompareTag("FueraMartillo"))
+        {
             hasHammer = false;
             Destroy(hit.gameObject);
         }
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -157,7 +179,6 @@ public class WheelchairController : MonoBehaviour
             other.gameObject.GetComponent<ChangeScene>().ChangeToScene();
         }
 
-        // Marca el nivel como completado al tocar un objeto con el tag "LevelCompletion"
         if (other.gameObject.CompareTag("LevelCompletion"))
         {
             LevelCompletion levelCompletion = other.gameObject.GetComponent<LevelCompletion>();
@@ -167,20 +188,26 @@ public class WheelchairController : MonoBehaviour
             }
         }
 
-        if (other.gameObject.CompareTag("RampaGenerator")){
+        if (other.gameObject.CompareTag("RampaGenerator"))
+        {
             RampaGenerator rampaGenerator = other.gameObject.GetComponent<RampaGenerator>();
-            if(numRampas > 0){
+            if (numRampas > 0)
+            {
                 numRampas--;
                 Debug.Log("Rampa used. Remaining rampas: " + numRampas);
-                if (rampaGenerator == null){
-                    Debug.LogWarning("RampaGenerator component not found."); 
+                if (rampaGenerator == null)
+                {
+                    Debug.LogWarning("RampaGenerator component not found.");
                     return;
                 }
-                rampaGenerator.GenerateRampa(); 
-                Destroy(other.gameObject); 
-            } else {
+                rampaGenerator.GenerateRampa();
+                Destroy(other.gameObject);
+            }
+            else
+            {
                 Debug.Log("No rampas left to use.");
-                if(rampaGenerator.IsDown()){
+                if (rampaGenerator.IsDown())
+                {
                     cc.enabled = false;
                     transform.position = initialPosition;
                     cc.enabled = true;
@@ -189,7 +216,7 @@ public class WheelchairController : MonoBehaviour
         }
     }
 
-     public void OpenInteractionCanvas()
+    public void OpenInteractionCanvas()
     {
         if (interactionCanvas != null)
         {

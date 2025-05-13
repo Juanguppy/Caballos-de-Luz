@@ -321,6 +321,52 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b062fe3066f3ab1489b87687fbff9d42, type: 3}
+--- !u!28 &39269090
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: VFXG_Falling_Sand_Rocks_B_PositionMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 6
+  m_Height: 1
+  m_CompleteImageSize: 96
+  m_MipsStripped: 0
+  m_TextureFormat: 20
+  m_MipCount: 1
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 96
+  _typelessdata: 08b940c1788dae42189da3c30000803f73d20dc263878d42fc3cb6c30000803f503131c1ba03a542667398c30000803f94531bc1da43ae42d4fc9dc30000803f644871c19e59a54298dd93c30000803f48efccc11b4bab42f2b7adc30000803f
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &61481303
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,52 +639,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!28 &81107839
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: VFXG_Falling_Sand_Rocks_B_PositionMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 6
-  m_Height: 1
-  m_CompleteImageSize: 96
-  m_MipsStripped: 0
-  m_TextureFormat: 20
-  m_MipCount: 1
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 1
-  m_MipmapLimitGroupName: 
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_LightmapFormat: 0
-  m_ColorSpace: 1
-  m_PlatformBlob: 
-  image data: 96
-  _typelessdata: 08b940c1788dae42189da3c30000803f73d20dc263878d42fc3cb6c30000803f503131c1ba03a542667398c30000803f94531bc1da43ae42d4fc9dc30000803f644871c19e59a54298dd93c30000803f48efccc11b4bab42f2b7adc30000803f
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &166773236
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,6 +788,10 @@ MonoBehaviour:
   alucinacionSound: {fileID: 8300000, guid: 17af5d79b4f10c344bdf4ba78e20eda1, type: 3}
   alucinacionTime: 60
   alucinacionTimer: 55
+  efectosTimer: 0
+  efectosTime: 45
+  efectosCanvas: {fileID: 0}
+  efectosText: {fileID: 0}
 --- !u!4 &311536451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7863967350111282629, guid: 9a1dfe1c3aa82e341923cd12b0f263f6, type: 3}
@@ -2611,11 +2615,11 @@ PrefabInstance:
     - target: {fileID: 873606921009702139, guid: c0c5c1f152b9fc44a8dc91451665f760, type: 3}
       propertyPath: m_PropertySheet.m_NamedObject.m_Array.Array.data[0].m_Value
       value: 
-      objectReference: {fileID: 1582026591}
+      objectReference: {fileID: 1467865518}
     - target: {fileID: 2993892118262295031, guid: c0c5c1f152b9fc44a8dc91451665f760, type: 3}
       propertyPath: m_PropertySheet.m_NamedObject.m_Array.Array.data[0].m_Value
       value: 
-      objectReference: {fileID: 81107839}
+      objectReference: {fileID: 39269090}
     - target: {fileID: 3641251155163695355, guid: c0c5c1f152b9fc44a8dc91451665f760, type: 3}
       propertyPath: m_Name
       value: VFX_Oasis
@@ -2813,6 +2817,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -98.965, z: 0}
+--- !u!1001 &961402612
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7040936740412084637, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_Name
+      value: ReyCaballo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.962395
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 28.744019
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -196.80011
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9975711
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.069655955
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -7.988
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040936740412310141, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7867992022718549999, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a1e071a9bbe2bc24d94451ca29ba39f3, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e5e26ffce538a94eb7644d4324f680a, type: 3}
 --- !u!1 &965517189 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7773858294574182187, guid: b6863142b93bd4f41b8f16c6fb3fc42b, type: 3}
@@ -4764,6 +4829,52 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!28 &1467865518
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: VFXG_Falling_Sand_Rocks_A_PositionMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 9
+  m_Height: 1
+  m_CompleteImageSize: 144
+  m_MipsStripped: 0
+  m_TextureFormat: 20
+  m_MipCount: 1
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 1
+  m_PlatformBlob: 
+  image data: 144
+  _typelessdata: a2194642ec5cbd424d7e89c30000803f57e22f4268f2b74216dc82c30000803fc89050428667bc42e0588ec30000803f306a4a42a6c0bb4230ba92c30000803f281d61427e5db642938297c30000803fda5c7a42504dbb421a8a9fc30000803f94f897421463b242a1a0a8c30000803f08019e42354cb342d454b2c30000803f31eda742354cb3425653b9c30000803f
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &1542002233
 GameObject:
   m_ObjectHideFlags: 0
@@ -5052,52 +5163,6 @@ MonoBehaviour:
   horseAudioClip: {fileID: 0}
   horseNameText: {fileID: 0}
   horseDescriptionText: {fileID: 0}
---- !u!28 &1582026591
-Texture2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: VFXG_Falling_Sand_Rocks_A_PositionMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 9
-  m_Height: 1
-  m_CompleteImageSize: 144
-  m_MipsStripped: 0
-  m_TextureFormat: 20
-  m_MipCount: 1
-  m_IsReadable: 1
-  m_IsPreProcessed: 0
-  m_IgnoreMipmapLimit: 1
-  m_MipmapLimitGroupName: 
-  m_StreamingMipmaps: 0
-  m_StreamingMipmapsPriority: 0
-  m_VTOnly: 0
-  m_AlphaIsTransparency: 0
-  m_ImageCount: 1
-  m_TextureDimension: 2
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 0
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_LightmapFormat: 0
-  m_ColorSpace: 1
-  m_PlatformBlob: 
-  image data: 144
-  _typelessdata: a2194642ec5cbd424d7e89c30000803f57e22f4268f2b74216dc82c30000803fc89050428667bc42e0588ec30000803f306a4a42a6c0bb4230ba92c30000803f281d61427e5db642938297c30000803fda5c7a42504dbb421a8a9fc30000803f94f897421463b242a1a0a8c30000803f08019e42354cb342d454b2c30000803f31eda742354cb3425653b9c30000803f
-  m_StreamData:
-    serializedVersion: 2
-    offset: 0
-    size: 0
-    path: 
 --- !u!1 &1590316901
 GameObject:
   m_ObjectHideFlags: 0
@@ -6994,3 +7059,4 @@ SceneRoots:
   - {fileID: 1096266068}
   - {fileID: 1688168616}
   - {fileID: 1590316905}
+  - {fileID: 961402612}
