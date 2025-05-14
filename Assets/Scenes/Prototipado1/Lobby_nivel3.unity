@@ -2513,7 +2513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredLevelIndex: 15
-  enable: 0
+  enable: 1
 --- !u!114 &2087141343
 MonoBehaviour:
   m_ObjectHideFlags: 0
