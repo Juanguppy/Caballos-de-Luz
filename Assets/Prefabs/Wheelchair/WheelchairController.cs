@@ -83,8 +83,8 @@ public class WheelchairController : MonoBehaviour
         {
             if (Input.GetKey(controlsManager.GetKey("Adelante"))) vertical += 1f;
             if (Input.GetKey(controlsManager.GetKey("Atrás"))) vertical -= 1f;
-            if (Input.GetKey(controlsManager.GetKey("Derecha"))) horizontal += 1f;
-            if (Input.GetKey(controlsManager.GetKey("Izquierda"))) horizontal -= 1f;
+            if (Input.GetKey(controlsManager.GetKey("GirarDerecha"))) horizontal += 1f;
+            if (Input.GetKey(controlsManager.GetKey("GirarIzquierda"))) horizontal -= 1f;
         }
         else
         {

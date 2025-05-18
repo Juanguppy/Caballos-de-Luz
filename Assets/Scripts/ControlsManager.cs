@@ -4,10 +4,10 @@ using UnityEngine;
 public class ControlsManager : MonoBehaviour
 {
     private Dictionary<string, KeyCode> keyMappings;
+    [SerializeField] private string keysetPrefix = "Player_"; // Cambia a "Wheelchair_" para el otro set
 
     void Start()
     {
-        // Inicializar el diccionario con las teclas predeterminadas
         keyMappings = new Dictionary<string, KeyCode>
         {
             { "Salto", KeyCode.Space },
@@ -17,8 +17,18 @@ public class ControlsManager : MonoBehaviour
             { "Izquierda", KeyCode.A },
             { "Derecha", KeyCode.D }
         };
+        if(keysetPrefix == "Wheelchair_")
+        {
+            keyMappings = new Dictionary<string, KeyCode>
+            {
+                { "Adelante", KeyCode.W },
+                { "Atrás", KeyCode.S },
+                { "GirarIzquierda", KeyCode.A },
+                { "GirarDerecha", KeyCode.D }
+            };
+        }
 
-        LoadKeys(); // Cargar teclas personalizadas si existen
+        LoadKeys();
     }
 
     public void SetKey(string action, KeyCode newKey)
@@ -26,7 +36,7 @@ public class ControlsManager : MonoBehaviour
         if (keyMappings.ContainsKey(action))
         {
             keyMappings[action] = newKey;
-            PlayerPrefs.SetString(action, newKey.ToString());
+            PlayerPrefs.SetString(keysetPrefix + action, newKey.ToString());
             PlayerPrefs.Save();
         }
         else
@@ -48,14 +58,14 @@ public class ControlsManager : MonoBehaviour
 
     public void LoadKeys()
     {
-        // Crear una copia de las claves para evitar modificar el diccionario mientras se itera
         var keys = new List<string>(keyMappings.Keys);
-    
+
         foreach (var action in keys)
         {
-            if (PlayerPrefs.HasKey(action))
+            if (PlayerPrefs.HasKey(keysetPrefix + action))
             {
-                keyMappings[action] = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString(action));
+                Debug.Log($"Loading key for action '{action}' from PlayerPrefs.");
+                keyMappings[action] = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString(keysetPrefix + action));
             }
         }
     }
