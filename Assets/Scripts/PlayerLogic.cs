@@ -203,6 +203,7 @@ public class PlayerLogic : MonoBehaviour
         {
             interactuandoCanvas = true;
             interactionCanvas.OpenMenu();
+            Time.timeScale = 0f; // Pausar el juego
         }
         else
         {
@@ -216,6 +217,7 @@ public class PlayerLogic : MonoBehaviour
         {
             interactuandoCanvas = false;
             interactionCanvas.ExitMenu();
+            Time.timeScale = 1f; // Reanudar el juego
         }
         else
         {

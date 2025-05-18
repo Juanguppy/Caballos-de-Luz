@@ -11,7 +11,7 @@ public class WheelchairController : MonoBehaviour
     [SerializeField] private float slopeResistance = 25;
     [SerializeField] private float stickToGroundForce = 10;
 
-    private bool interactuandoCanvas;
+    public bool interactuandoCanvas;
 
     public AudioClip wallCollisionSound;
     private CharacterController cc;
