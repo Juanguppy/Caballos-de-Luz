@@ -57,6 +57,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Prototipado1/Level3_2.unity
     guid: 9a1ad74e21007e64090ea0fe5ab2b0dc
   - enabled: 1
+    path: Assets/Scenes/Prototipado1/Level3_3.unity
+    guid: 2e2b814b574acc04d987db3a61d91cfc
+  - enabled: 1
     path: Assets/Scenes/Prototipado1/Controles.unity
     guid: a8ade8470f49b834db1e8d549d4fd1db
   m_configObjects:
