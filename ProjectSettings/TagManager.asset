@@ -30,6 +30,7 @@ TagManager:
   - DrugSealer
   - Enemy2
   - ReyCaballo
+  - Final
   layers:
   - Default
   - TransparentFX

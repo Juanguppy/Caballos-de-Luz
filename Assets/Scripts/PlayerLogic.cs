@@ -134,6 +134,10 @@ public class PlayerLogic : MonoBehaviour
                 audioSource.PlayOneShot(wallCollisionSound);
             }
         }
+        if (collision.gameObject.CompareTag("Final"))
+        {
+            SceneManager.LoadScene(19);
+        }
     }
 
     protected virtual void OnColissionExit(Collision collision)

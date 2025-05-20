@@ -8,6 +8,9 @@ public class VideoIntro : MonoBehaviour
     public VideoPlayer videoPlayer;
     public GameObject videoPlayerObject; // El objeto que contiene el VideoPlayer (o el canvas/UI si es el caso)
     public Button skipButton; // Botón para saltar
+    public string videoName = "empatia.mp4"; // Nombre del video a reproducir
+    public bool changeScene = false; 
+    public int sceneIndex = 0;
 
     private bool videoFinished = false;
 
@@ -16,7 +19,8 @@ public class VideoIntro : MonoBehaviour
         Cursor.visible = true; 
         Cursor.lockState = CursorLockMode.None;
 
-        string path = System.IO.Path.Combine(Application.streamingAssetsPath, "empatia.mp4");
+        Debug.Log(videoName);
+        string path = System.IO.Path.Combine(Application.streamingAssetsPath, videoName);
         videoPlayer.source = VideoSource.Url;
         videoPlayer.url = path;
 
@@ -56,6 +60,11 @@ public class VideoIntro : MonoBehaviour
 
     void EndVideo()
     {
+        if(changeScene)
+        {
+            SceneManager.LoadScene(sceneIndex);
+            return;
+        }
         videoPlayerObject.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
