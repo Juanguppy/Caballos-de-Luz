@@ -25,6 +25,8 @@ public class ReyCaballo : MonoBehaviour
             hasCollided = true;
             audioSource.PlayOneShot(audioClip);
             StartCoroutine(MoveUpAfterAudio());
+            Collider col = GetComponent<Collider>();
+            if(col != null) col.enabled = false;
         }
     }
 

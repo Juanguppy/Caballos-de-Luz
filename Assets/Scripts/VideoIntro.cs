@@ -50,6 +50,7 @@ public class VideoIntro : MonoBehaviour
 
     void SkipVideo()
     {
+        if(changeScene) return; // no se puede saltar el video final :-)
         if (!videoFinished)
         {
             videoFinished = true;
