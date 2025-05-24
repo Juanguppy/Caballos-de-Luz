@@ -3813,6 +3813,14 @@ PrefabInstance:
       propertyPath: MinDistance
       value: 76.68891
       objectReference: {fileID: 0}
+    - target: {fileID: 4329739238141988807, guid: 9a1dfe1c3aa82e341923cd12b0f263f6, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 23e1b2b7e511d6d4b9623da3418a663d, type: 3}
+    - target: {fileID: 4329739238141988807, guid: 9a1dfe1c3aa82e341923cd12b0f263f6, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 23e1b2b7e511d6d4b9623da3418a663d, type: 3}
     - target: {fileID: 4614817235409247619, guid: 9a1dfe1c3aa82e341923cd12b0f263f6, type: 3}
       propertyPath: m_Constraints
       value: 112

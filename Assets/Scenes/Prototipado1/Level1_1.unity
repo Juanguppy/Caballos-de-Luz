@@ -6022,6 +6022,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 8289372353986127009, guid: dde40c645f6dc5b4fb78bd2c9e956747, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: a13567e63c5791a49ba6c862ec3cc1ad, type: 3}
+    - target: {fileID: 8289372353986127009, guid: dde40c645f6dc5b4fb78bd2c9e956747, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a13567e63c5791a49ba6c862ec3cc1ad, type: 3}
     - target: {fileID: 8419259343691276085, guid: dde40c645f6dc5b4fb78bd2c9e956747, type: 3}
       propertyPath: m_Name
       value: WheelchairController
